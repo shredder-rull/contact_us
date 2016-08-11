@@ -40,6 +40,10 @@ ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
+ContactUs::Tasks::Install.class_eval do 
+  def self.add_route; end
+end
+
 RSpec.configure do |config|
   config.include RSpec::Matchers
   config.infer_spec_type_from_file_location!
@@ -50,4 +54,7 @@ RSpec.configure do |config|
     config.include ::Rails::Controller::Testing::TemplateAssertions, type: type
     config.include ::Rails::Controller::Testing::Integration, type: type
   end
+
+  config.include ContactUs::Engine.routes.url_helpers, :type => :feature
+
 end

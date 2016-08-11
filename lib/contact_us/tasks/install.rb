@@ -7,6 +7,7 @@ module ContactUs
 
         def run
           copy_initializer_file
+          add_route
           puts "Done!"
         end
 
@@ -35,6 +36,10 @@ module ContactUs
           origin = File.join(gem_path, 'app/views')
           destination = Rails.root.join('app/views')
           copy_files(['.'], origin, destination)
+        end
+
+        def add_route
+          copier.route "mount ContactUs::Engine => '/'"
         end
 
         private

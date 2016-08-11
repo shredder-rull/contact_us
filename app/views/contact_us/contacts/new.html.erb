@@ -1,5 +1,5 @@
 <h2><%= t('.contact_us') %></h2>
-<%= form_for @contact, :url => contacts_path, :html => {:class => 'formtastic'} do |f| %>
+<%= form_for @contact, :url => contact_us.contacts_path, :html => {:class => 'formtastic'} do |f| %>
   <% if ContactUs.require_name %>
     <div class='string required' id='contact_us_contact_name_input'>
       <%= f.label :name, (t('.name') + content_tag(:abbr, '*', :class => 'required')).html_safe %>

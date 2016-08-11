@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe ContactUs::ContactsController do
 
+  routes { ContactUs::Engine.routes }
+
   describe 'create' do
 
     before do
